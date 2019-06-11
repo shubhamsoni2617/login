@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component} from 'react';
+import Auth from './containers/Auth/Auth';
+import UserData from './components/userData';
+import { connect } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  state={
+
+  }
+
+
+
+  render(){
+  
+    // let d;
+    // if(this.props.userData){
+    //   d=<UserData />
+    // }
+    return (
+      <div>
+       
+      <Auth />
+        <UserData userData={this.props.userData} />
+      {/* {d} */}
+      </div>
+      
+    )
+  }
 }
 
-export default App;
+const mapStateToProps=(state)=>{
+  console.log(state)
+  return {
+      userData: state.auth.data
+}
+  }
+  
+
+export default connect(mapStateToProps)(App)
