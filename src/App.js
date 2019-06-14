@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import Auth from './containers/Auth/Auth';
 import UserData from './components/userData';
 import { connect } from 'react-redux';
+import { Route, Router, Link } from 'react-router-dom';
 
 class App extends Component{
   state={
@@ -11,17 +12,16 @@ class App extends Component{
 
 
   render(){
-  
-    // let d;
-    // if(this.props.userData){
-    //   d=<UserData />
-    // }
+  // <Link to='/page' />
     return (
       <div>
        
       <Auth />
-        <UserData userData={this.props.userData} />
-      {/* {d} */}
+        {/* <UserData userData={this.props.userData} /> */}
+      {/* <Router> */}
+        {/* <Route path='/page' exact render={<UserData userData={this.props.userData} />}/> */}
+      {/* </Router> */}
+     
       </div>
       
     )

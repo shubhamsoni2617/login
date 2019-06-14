@@ -3,21 +3,22 @@ import axios from 'axios';
 export const userData=(token)=>dispatch=>{
     const arr=[];
 
-    axios.get('https://appinesstask.firebaseio.com/user.json?auth='+token)
+   return axios.get('https://appinesstask.firebaseio.com/user.json?auth='+token)
     .then(response=>{
         for(let prop in response.data){
             arr.push({...response.data[prop]})
         }
+        dispatch({
+            type: 'USER_DATA',
+            data: arr
+        })
         // console.log(response.data)
     })
     .catch(error=>{
         console.log(error)
     })
 
-    return dispatch({
-        type: 'USER_DATA',
-        data: arr
-    })
+     
 }
 
 const authStart=()=>{

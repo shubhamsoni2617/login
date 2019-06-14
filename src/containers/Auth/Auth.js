@@ -93,6 +93,9 @@ class Auth extends Component{
     submitHandler=(event)=>{
         event.preventDefault();
         this.props.onAuth(this.state.controls.email.value,this.state.controls.password.value, this.state.isSignUp)
+        // .then(response=>{
+        //     this.props.data(this.props.token) 
+        // })
     }
     
 signUpToggle=()=>{
@@ -120,9 +123,9 @@ signUpToggle=()=>{
   
 //   }
 
-componentDidUpdate(prevProp){
+componentDidMount(){
     // console.log(prevProp)
-    if(this.props.token!==prevProp.token){
+    if(this.props.token){
         this.props.data(this.props.token) 
     }
    

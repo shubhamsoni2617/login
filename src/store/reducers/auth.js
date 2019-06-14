@@ -10,7 +10,7 @@ const intialState={
     data: null
 }
 
-const authStart=(state)=>{
+const authStart=(state, action)=>{
     return updateObjects(state, {loading: true, error: null});
 }
 
